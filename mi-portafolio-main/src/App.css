@@ -27,7 +27,21 @@
 .App-link {
   color: #61dafb;
 }
-
+.primera {
+  /* background-color: rgb(1, 2, 2); */
+  /* opacity: 1; */
+  padding: 0;
+  margin: 0;
+   /* width: 100%;
+  height: 500px; */
+  background-image: url("./componentes/LandingPag/Imagenes/curriculum-vitae350x495.jpg");
+  background-repeat: no-repeat; 
+  background-position: center right;
+  background-attachment: scroll;
+  /* background-size: contain; */
+  /* vertical-align: baseline;
+  padding-left: 20px; */
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -39,7 +39,7 @@ function BasicButtons() {
       <Stack spacing={2} direction="row">
         {/* <Button variant="text">Text</Button>
         <Button variant="contained">Contained</Button>  estilos diferentes de botones*/}
-        <BotonMod1 variant="outlined" >Login</BotonMod1>
+        <BotonMod1 variant="outlined">Login</BotonMod1>
         <BotonMod variant="outlined">Crea tu portafolio</BotonMod>
         <BotonMod variant="outlined">Plantillas</BotonMod>
         <BotonMod variant="outlined">Descargas</BotonMod>

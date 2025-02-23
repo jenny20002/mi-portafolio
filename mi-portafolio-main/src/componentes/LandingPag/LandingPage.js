@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import Footer from "./Footer.js";
+// import Footer from "./Footer.js";
 import Nabvar from "./Nabvar.js";
 import Contact from "./Contact.js";
 import Home from "./Home.js";
@@ -17,15 +17,13 @@ const BodyStyled = styled.body`
   padding: 0;
   border: 0;
 `;
-
-
 function LandingPage() {
   return (
     <BodyStyled>
       <Contact />
       <Nabvar />
       <Home/> 
-      <Footer /> 
+      {/* <Footer />  */}
     </BodyStyled>
   );
 } 
