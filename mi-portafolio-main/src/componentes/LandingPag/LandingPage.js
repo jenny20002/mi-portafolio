@@ -3,6 +3,7 @@ import React from "react";
 import Footer from "./Footer.js";
 import Nabvar from "./Nabvar.js";
 import Contact from "./Contact.js";
+import Home from "./Home.js";
 
 const BodyStyled = styled.body`
   background: -webkit-linear-gradient(
@@ -23,7 +24,7 @@ function LandingPage() {
     <BodyStyled>
       <Contact />
       <Nabvar />
-      {/* <Main />  */}
+      <Home/> 
       <Footer /> 
     </BodyStyled>
   );
