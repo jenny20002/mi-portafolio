@@ -1,0 +1,87 @@
+
+.mainClass {
+  width: 100%;
+  height: 100%;
+}
+
+/*                      Stylos de los div Padres adentro de la seccion */
+.divContenedor1 {
+  width: 100%;
+  height: 25%;
+}
+.divContenedor2,
+.divContenedor3,
+.divContenedor4,
+.divContenedor5{
+  width: 100%;
+  height: 15%;
+  color: aliceblue;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px;
+}
+.divContenedor6 {
+  width: 100%;
+  height: 15%;
+  color: aliceblue;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+}
+/*                         Stylos de los div HIJOS adentro de la Seccion   */
+.divContenedorhijo1 {
+  margin-left: 10%;
+  padding-top: 5%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: aliceblue;
+  font-size: 46px;
+  font-weight: bold;
+}
+.divContenedorhijo2,
+.divContenedorHijo3,
+.divContenedorHijo4,
+.divContenedorHijo5,
+.divContenedorHijo6 {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  padding-left: 10%;
+}
+
+/*                                              Stylos de la section lado izquierdo */
+.sectionIzquierdoClass {
+  width: 60%;
+  height: 100%;
+  float: left; /* en los dos lados se debe definir las posicines del lugar que ocupara*/
+}
+
+/*                                               Stylos de la aside lado derecho */
+.asideDerechoClass {
+  width: 40%;
+  height: 100%;
+  float: right;
+    background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorImagen1{
+  width: 60%;
+  height: 60%;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorImagen2 {
+  background-image: url(Imagenes/curriculum-vitae350x495.jpg);
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll;
+  margin: 0 auto; /* Centra el contenedor en la página */
+  padding-top: 100%;
+}

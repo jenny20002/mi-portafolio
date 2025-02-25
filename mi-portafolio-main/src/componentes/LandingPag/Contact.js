@@ -3,8 +3,8 @@ import styled from "styled-components";
 const HeaderStyle = styled.header`
   padding: 0px;
   margin: 0px;
-  width: 100vw;
-  height: 5vh;
+    width: 100%;
+  height: 50px;
   border-bottom: 3px solid azure;
 `;
 const Contactos = styled.p`

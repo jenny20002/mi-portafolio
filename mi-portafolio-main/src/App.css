@@ -1,46 +1,23 @@
+/*Esto hace que todos los elementos tengan un margen y un relleno de 0 porq por defecto traen */
+* {
+  margin: 0;
+  padding: 0;
+}
+/*  yo no toque nada de esto   inicio */
 .App {
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
-}
-.primera {
-  /* background-color: rgb(1, 2, 2); */
-  /* opacity: 1; */
-  padding: 0;
-  margin: 0;
-   /* width: 100%;
-  height: 500px; */
-  background-image: url("./componentes/LandingPag/Imagenes/curriculum-vitae350x495.jpg");
-  background-repeat: no-repeat; 
-  background-position: center right;
-  background-attachment: scroll;
-  /* background-size: contain; */
-  /* vertical-align: baseline;
-  padding-left: 20px; */
 }
 @keyframes App-logo-spin {
   from {
@@ -50,3 +27,17 @@
     transform: rotate(360deg);
   }
 }
+/*  yo no toque nada de esto   fin */
+
+
+
+
+.primera {
+  padding: 0;
+  margin: 0;
+  background-image: url("./componentes/LandingPag/Imagenes/curriculum-vitae350x495.jpg");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-attachment: scroll;
+}
+
