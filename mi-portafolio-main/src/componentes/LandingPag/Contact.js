@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-const HeaderStyle = styled.header`
+const HeaderStyle = styled.div`
   padding: 0px;
   margin: 0px;
-    width: 100%;
+  width: 100%;
   height: 50px;
   border-bottom: 3px solid azure;
 `;
@@ -13,6 +13,8 @@ const Contactos = styled.p`
   text-align: right;
   padding-right: 70px;
   margin: 0;
+  font-size: calc(18px + (28 - 18) * ((100vw - 300px) / (1600 - 300)));
+
 `;
 const Iconos = styled.image`
   vertical-align: baseline;

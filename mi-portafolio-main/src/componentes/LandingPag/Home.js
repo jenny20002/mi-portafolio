@@ -6,6 +6,14 @@ import { styled as muiStyled } from "@mui/system";
 import HomeC from "./HomeC.css";
 
 
+
+
+
+
+
+
+
+
 const SpanStyled = styled.span`
   color: white;
   position: relative; /* Asegúrate de que el contenedor padre tenga posición relativa */
@@ -28,20 +36,20 @@ const SpanStyled = styled.span`
   }
 `;
 
-
 function Home() {
   return (
-    <main class="mainClass">
-      <section class="sectionIzquierdoClass"> 
-      <div class="divContenedor1"><h1 class="divContenedorhijo1">Hello I'm!</h1></div>
+ 
+    <div class="mainClass">
+      <div class="sectionIzquierdoClass"> 
+      <div class="divContenedor1"><h1 class="divContenedorhijo1">Comienza a crear</h1></div>
       <div class="divContenedor2"><p class="divContenedorhijo2"> {IconoCheck()}<SpanStyled> Crea tu propio portafolios</SpanStyled></p></div>
             <div class="divContenedor3"><p class="divContenedorHijo3">{IconoCheck()}<SpanStyled>Selecciona una Plantilla.</SpanStyled></p></div>
             <div class="divContenedor4"><p class="divContenedorHijo4">{IconoCheck()}<SpanStyled>Rellena con tus datos personales.</SpanStyled></p></div>
             <div class="divContenedor5"><p class="divContenedorHijo5">{IconoCheck()}<SpanStyled>Descarga tu curriculum Vitae.</SpanStyled></p></div>
             <div class="divContenedor6"><p class="divContenedorHijo6"><SpanStyled>Crear tu curriculum nunca habia sido tan facil.</SpanStyled></p></div>
-      </section>
-      <aside class="asideDerechoClass"><div class="contenedorImagen1"><div class="contenedorImagen2"></div></div></aside>
-    </main>
+      </div>
+      <div class="asideDerechoClass"><div class="contenedorImagen1"><div class="contenedorImagen2"></div></div></div>
+    </div>
     
   );
 }
@@ -72,6 +80,7 @@ function BasicButtons() {
     </StyleDiv>
   );
 }
+
 function IconoCheck() {
   return (
     <svg

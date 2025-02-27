@@ -2,13 +2,16 @@ import styled from "styled-components";
 import * as React from "react";
 import Button from "@mui/material/Button";
 import { styled as muiStyled } from "@mui/system";
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
-const BarraNav = styled.nav`
+
+const BarraNav = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 40px;
+  height: 5%;
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
@@ -48,20 +51,69 @@ const BotonMod = muiStyled(Button)`
   color: rgb(231, 245, 249);
   border-radius: 30px;
 `;
-
+function a() {
+  alert("Hola");
+}
+ 
 function BasicButtons() {
   return (
     <ContenedorBotones>
-      <BotonMod1 variant="outlined">Login</BotonMod1>
-      <BotonMod variant="outlined">Crea tu portafolio</BotonMod>
-      <BotonMod variant="outlined">Plantillas</BotonMod>
-      <BotonMod variant="outlined">Descargas</BotonMod>
+      {CustomizedSnackbars()}
+      {/* <BotonMod1 variant="outlined" >Login</BotonMod1> */}
+      <BotonMod variant="outlined" onClick={boton2}>Crea tu portafolio</BotonMod>
+      <BotonMod variant="outlined" onClick={boton3}>Plantillas</BotonMod>
+      <BotonMod variant="outlined" onClick={boton4}>Descargas</BotonMod>
     </ContenedorBotones>
   );
 }
 
+function CustomizedSnackbars() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+  React.useEffect(() => {
+    console.log('Snackbar state on load:', open);
+  }, [open]);
+  
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  return (
+    <div>
+      <BotonMod variant="outlined" onClick={handleClick}>Login</BotonMod>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity="success"
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          Todavia no esta programado ^_^
+        </Alert>
+      </Snackbar>
+    </div>
+  );
+}
+
+function boton2(){
+  alert("todavia no esta programado 2");
+}
+function boton3(){
+  alert("todavia no esta programado 3");
+}
+function boton4(){
+  alert("todavia no esta programado 4");
+}
 function Nabvar() {
   return <BarraNav>{BasicButtons()}</BarraNav>;
 }
+
 
 export default Nabvar;
