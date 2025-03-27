@@ -1,0 +1,15 @@
+/*Esto hace que todos los elementos tengan un margen y un relleno de 0 porq por defecto traen */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.primera {
+  padding: 0;
+  margin: 0;
+  background-image: url("./componentes/LandingPag/Imagenes/curriculum-vitae350x495.jpg");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-attachment: scroll;
+}
+

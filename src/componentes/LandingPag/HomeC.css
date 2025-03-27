@@ -1,0 +1,140 @@
+.mainClass {
+
+
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+}
+.nuevoPrueba{
+  width: 100%;
+  height: 100vh;
+  padding: 0%;
+  margin: 0%;
+  border: 0;
+}
+/*                      Stylos de los div Padres adentro de la seccion */
+/* .divContenedor1 {
+  width: 100%;
+  height: 25%; */
+  /*                              inicio  de animacion  */
+  /* -webkit-animation: text-shadow-pop-tl 0.6s both;
+  animation: text-shadow-pop-tl 0.6s both;
+}
+@-webkit-keyframes text-shadow-pop-tl {
+  0% {
+    text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555,
+      0 0 #555555, 0 0 #555555, 0 0 #555555;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    text-shadow: -1px -1px #555555, -2px -2px #555555, -3px -3px #555555,
+      -4px -4px #555555, -5px -5px #555555, -6px -6px #555555, -7px -7px #555555,
+      -8px -8px #555555;
+    -webkit-transform: translateX(8px) translateY(8px);
+    transform: translateX(8px) translateY(8px);
+  }
+}
+@keyframes text-shadow-pop-tl {
+  0% {
+    text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555,
+      0 0 #555555, 0 0 #555555, 0 0 #555555;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    text-shadow: -1px -1px #555555, -2px -2px #555555, -3px -3px #555555,
+      -4px -4px #555555, -5px -5px #555555, -6px -6px #555555, -7px -7px #555555,
+      -8px -8px #555555;
+    -webkit-transform: translateX(8px) translateY(8px);
+    transform: translateX(8px) translateY(8px);
+  }
+} */
+
+/*                     fin de animacion */
+.divContenedor2,
+.divContenedor3,
+.divContenedor4,
+.divContenedor5 {
+  width: 100%;
+  height: 15%;
+  color: aliceblue;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px;
+}
+.divContenedor6 {
+  width: 100%;
+  height: 15%;
+  color: aliceblue;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+}
+/*                         Stylos de los div HIJOS adentro de la Seccion   */
+.divContenedorhijo1 {
+  margin-left: 10%;
+  padding-top: 5%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: aliceblue;
+  font-size: 46px;
+  font-weight: bold;
+  font-size: calc(36px + (48 - 36) * ((100vw - 300px) / (1600 - 300)));
+}
+.divContenedorhijo2,
+.divContenedorHijo3,
+.divContenedorHijo4,
+.divContenedorHijo5 {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  padding-left: 10%;
+  font-size: 24px;
+}
+.divContenedorHijo6 {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  padding-left: 10%;
+  font-size: calc(24px + (36 - 24) * ((100vw - 300px) / (1600 - 300)));
+}
+
+/*                                              Stylos de la section lado izquierdo */
+.sectionIzquierdoClass {
+  width: 60%;
+  height: 100vh;
+  float: left; /* en los dos lados se debe definir las posicines del lugar que ocupara*/
+
+}
+
+/*                                               Stylos de la aside lado derecho */
+.asideDerechoClass {
+  width: 40%;
+  height: 100vh;
+  float: right;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorImagen1 {
+  width: 60%;
+  height: 60%;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorImagen2 {
+  background-image: url(Imagenes/curriculum-vitae350x495.jpg);
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll;
+  margin: 0 auto;
+  padding-top: 100%;
+}
