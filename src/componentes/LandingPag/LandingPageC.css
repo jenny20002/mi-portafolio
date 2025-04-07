@@ -1,0 +1,9 @@
+.hola{
+    background: -webkit-linear-gradient(
+    top right,
+    rgb(98, 88, 145),
+    rgb(0, 7, 89)
+  );
+  width: 100%;
+  height: 100vh;
+}
