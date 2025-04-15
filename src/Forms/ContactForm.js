@@ -159,11 +159,11 @@ const ContactForm = () => {
 
 
       <div className="navigation-buttons">
-        <button onClick={() => navigate("/habilidades")} style={{ backgroundColor: "#6a1b9a", color: "white" }}>
-          Regresar
+        <button onClick={() => navigate("/idiomas")} style={{ backgroundColor: "#6a1b9a", color: "white" }}>
+        ← Regresar
         </button>
-        <button onClick={() => navigate("/vista-previa")} style={{ backgroundColor: "#2196f3", color: "white" }}>
-          Siguiente
+        <button onClick={() => navigate("/vista-previa")} style={{ backgroundColor: "#2196f3", color: "white"}} >
+          Siguiente →
         </button>
       </div>
     </div>

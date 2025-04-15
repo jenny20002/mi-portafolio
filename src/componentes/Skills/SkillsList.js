@@ -25,7 +25,6 @@ const SkillsList = () => {
 
   return (
     <Container>
-      <Typography variant="h4" gutterBottom>Mis Habilidades</Typography>
       <SkillsForm addSkill={addSkill} editSkill={editSkill} skillToEdit={skillToEdit} />
 
       <Grid container spacing={2} mt={2}>

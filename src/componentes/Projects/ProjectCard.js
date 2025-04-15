@@ -13,7 +13,6 @@ const ProjectCard = ({ project, openProject, editProject, removeProject }) => {
           <Typography variant="body2">{project.description}</Typography>
           <Typography variant="caption">Tecnologías: {project.technologies}</Typography>
           <Box mt={1}>
-            <Button color="primary" onClick={() => openProject(project)}>Ver</Button>
             <Button color="secondary" onClick={() => editProject(project)}>Editar</Button>
             <Button color="error" onClick={() => removeProject(project.id)}>Eliminar</Button>
           </Box>

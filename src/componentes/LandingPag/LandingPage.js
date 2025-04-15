@@ -4,6 +4,8 @@ import Footer from "./Footer.js";
 import Nabvar from "./Nabvar.js";
 import Contact from "./Contact.js";
 import Home from "./Home.js";
+
+
 //// error de body a div mejor
 var BodyStyled = styled.div`
    background: -webkit-linear-gradient(

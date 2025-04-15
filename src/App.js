@@ -5,12 +5,14 @@ import { Index2 } from "./componentes/CreaCV/CreaPortafolio";
 import ProjectForm from './componentes/Projects/ProjectForm';
 import PersonalInfoForm from './Forms/PersonalInfoForm';
 import SkillsList from "./componentes/Skills/SkillsList" ;
-<<<<<<< HEAD
+import LanguagesForm from "./componentes/Languages/LanguagesForm" ;
 import ContactForm from "./Forms/ContactForm";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/firebase"; 
 
-=======
->>>>>>> 11b431636f32bd7c21459895bfed87cbf52b788a
+
 function App() {
+
   return (
     <Router>
       <Routes>
@@ -19,10 +21,8 @@ function App() {
         <Route path="/perfil" element={<PersonalInfoForm />} />   
         <Route path="/proyectos" element={<ProjectForm />} />  
         <Route path="/habilidades" element={<SkillsList />} />
-<<<<<<< HEAD
+        <Route path="/idiomas" element={<LanguagesForm />} />
         <Route path="/contactos" element={<ContactForm />} />
-=======
->>>>>>> 11b431636f32bd7c21459895bfed87cbf52b788a
       </Routes>
     </Router>
   );

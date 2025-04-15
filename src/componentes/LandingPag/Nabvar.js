@@ -17,10 +17,6 @@ import Stack from "@mui/material/Stack";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 11b431636f32bd7c21459895bfed87cbf52b788a
 const BarraNav = muiStyled("div")`
   margin-top: 4px;
   display: flex;
@@ -226,7 +222,6 @@ function LoginButton() {
 }
 
 function boton2() {
-<<<<<<< HEAD
   const auth = getAuth();
   const user = auth.currentUser; // Verifica si hay un usuario autenticado
 
@@ -235,10 +230,7 @@ function boton2() {
   } else {
     alert("Debes iniciar sesión para crear un portafolio.");
   }
-=======
   <a href="index_2.html" target="_self"></a>;
-  alert("Todavía no está programado 2");
->>>>>>> 11b431636f32bd7c21459895bfed87cbf52b788a
 }
 function boton3() {
   alert("Todavía no está programado 3");
