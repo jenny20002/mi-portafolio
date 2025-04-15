@@ -14,7 +14,6 @@ const LanguagesForm = () => {
 
   const [languages, setLanguages] = useState([]); // lista local
 
-  // Cargar idiomas guardados desde localStorage cuando el componente se monta
   useEffect(() => {
     const savedLanguages = localStorage.getItem("languages");
     if (savedLanguages) {
@@ -22,7 +21,6 @@ const LanguagesForm = () => {
     }
   }, []);
 
-  // Guardar los idiomas en localStorage cada vez que se modifiquen
   useEffect(() => {
     if (languages.length > 0) {
       localStorage.setItem("languages", JSON.stringify(languages)); // Guardar en localStorage
@@ -62,7 +60,7 @@ const LanguagesForm = () => {
 
   const handleDelete = (id) => {
     const updatedLanguages = languages.filter((lang) => lang.id !== id);
-    setLanguages(updatedLanguages); // Actualizar la lista
+    setLanguages(updatedLanguages); 
   };
 
   return (
