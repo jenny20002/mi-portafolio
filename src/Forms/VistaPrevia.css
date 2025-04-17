@@ -1,0 +1,262 @@
+.vistaPrevia {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .vistaPrevia h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .vistaPrevia p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .vistaPrevia .fotoUsuario img {
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .vistaPrevia .informacionPersonal,
+  .vistaPrevia .formacion,
+  .vistaPrevia .experiencia,
+  .vistaPrevia .proyectos,
+  .vistaPrevia .habilidades {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .vistaPrevia .informacionPersonal h3,
+  .vistaPrevia .formacion h3,
+  .vistaPrevia .experiencia h3,
+  .vistaPrevia .proyectos h3,
+  .vistaPrevia .habilidades h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: #007bff;
+  }
+  
+  .vistaPrevia .formacion div,
+  .vistaPrevia .experiencia div,
+  .vistaPrevia .proyectos div,
+  .vistaPrevia .habilidades div {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .vistaPrevia .formacion div:last-child,
+  .vistaPrevia .experiencia div:last-child,
+  .vistaPrevia .proyectos div:last-child,
+  .vistaPrevia .habilidades div:last-child {
+    border-bottom: none;
+  }
+  
+  .vistaPrevia a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .vistaPrevia a:hover {
+    text-decoration: underline;
+  }
+  
+  .vistaPrevia .edit-icon {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #007bff;
+    transition: color 0.3s ease;
+  }
+  
+  .vistaPrevia .edit-icon:hover {
+    color: #0056b3;
+  }
+
+
+  .proyectos-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas */
+    gap: 20px; /* Espaciado entre los elementos */
+    justify-content: center; /* Centra los elementos horizontalmente */
+  }
+  
+  .proyectos-item {
+    width: 250px; /* Ancho fijo para cada tarjeta de proyecto */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .proyectos-img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    max-width: 200px; /* Ancho máximo de la imagen */
+    max-height: 300px; /* Alto máximo de la imagen */
+    object-fit: cover; /* Ajusta la imagen sin distorsión */
+    margin: 10px auto; /* Centra la imagen verticalmente */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar la imagen */
+  }
+  
+  .edit-icon {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #007bff;
+    transition: color 0.3s ease;
+  }
+  
+  .edit-icon:hover {
+    color: #0056b3;
+  }
+/* Estilos para la sección de idiomas */
+.vistaPrevia .idiomas {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.vistaPrevia .idiomas h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #007bff;
+}
+
+.vistaPrevia .idiomas div {
+  margin-bottom: 5px; /* Reducir el espacio entre los elementos */
+  padding: 5px 0; /* Reducir el relleno interno */
+  border-bottom: none; /* Eliminar las líneas divisorias */
+}
+
+.vistaPrevia .idiomas p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Ajustar el margen del encabezado de la sección de contactos */
+.vistaPrevia .contactos h3 {
+  margin: 0 0 10px 0; /* Eliminar margen superior y ajustar margen inferior */
+  font-size: 1.3rem;
+  color: #007bff;
+}
+
+/* Ajustar el margen y relleno del contenedor de contactos */
+.vistaPrevia .contactos {
+  margin: 10px 0; /* Reducir el margen superior e inferior */
+  padding: 10px; /* Ajustar el relleno interno */
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Contenedor principal para las secciones */
+.vistaPrevia .secciones {
+  display: flex; /* Hacer que las secciones sean columnas */
+  flex-wrap: wrap; /* Permitir que las columnas se ajusten en varias filas si es necesario */
+  gap: 20px; /* Espaciado entre las columnas */
+  justify-content: space-between; /* Espaciado uniforme entre columnas */
+  align-items: flex-start; /* Alinear las columnas al inicio */
+  margin-top: 20px; /* Espaciado superior para separar del contenido anterior */
+}
+
+/* Estilo para cada sección individual */
+.vistaPrevia .seccion {
+  flex: 1; /* Hacer que cada columna ocupe el mismo espacio */
+  min-width: 250px; /* Ancho mínimo para cada columna */
+  max-width: 300px; /* Ancho máximo para cada columna */
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezados de las secciones */
+.vistaPrevia .seccion h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #007bff;
+}
+
+/* Ajustes específicos para la sección de contactos */
+.vistaPrevia .contactos a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.vistaPrevia .contactos a:hover {
+  text-decoration: underline;
+}
+
+.vistaPrevia .contactos .icon {
+  margin-right: 8px; /* Reducir el espacio entre el ícono y el texto */
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+/* Ajustes específicos para la sección de idiomas */
+.vistaPrevia .idiomas p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Ajustes específicos para la sección de habilidades */
+.vistaPrevia .habilidades div {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.vistaPrevia .habilidades div:last-child {
+  border-bottom: none;
+}
+
+
+/* Estilo para la sección de referencias */
+.vistaPrevia .referencias {
+  width: 100%; /* Abarcar todo el ancho disponible */
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Separar de las secciones anteriores */
+}
+
+.vistaPrevia .referencias h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #007bff;
+}
+
+.vistaPrevia .referencias-item {
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.vistaPrevia .referencias-item:last-child {
+  border-bottom: none; /* Eliminar la línea divisoria del último elemento */
+}

@@ -1,38 +1,52 @@
-import React from 'react';
-import './Carta.css';
-import './Forms.css';
-import { EducationForm } from '../../Forms/EducationForm';
-import { ExperienceForm } from '../../Forms/ExperienceForm';
-import { Button } from '@mui/material'; // Importa el botón de MUI
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate para la navegación
+import React, { useState } from "react";
+import "./Carta.css";
+import "./Forms.css";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import EducationForm from "../../Forms/EducationForm";
+import ExperienceForm from "../../Forms/ExperienceForm";
 
-export function Index2() {
-  const navigate = useNavigate(); // Usamos el hook useNavigate para manejar la navegación
+export function EducationyExperience() {
+  const navigate = useNavigate();
+  const [educations, setEducations] = useState([]);
+  const [experiences, setExperiences] = useState([]);
 
   return (
     <div className="Base">
-      <div className="card-body">
-        <div className="form-container">
-          <EducationForm />
-          <ExperienceForm />
-          {/* Botón para navegar al formulario de proyectos */}
-          <Button 
-  className="button"
-  sx={{ 
-    backgroundColor: "#fff", 
-    color: "#007bff", 
-    fontWeight: "bold", 
-    border: "1px solid #007bff",
-    "&:hover": { backgroundColor: "#e6f0ff" }
-  }}
-  onClick={() => navigate("/proyectos")}
->
-  Proyectos
-</Button>
-
+      <div className="form-container">
+        {/* Formulario de Educación */}
+        <div className="form-left">
+          <EducationForm
+            educations={educations}
+            setEducations={setEducations}
+          />
         </div>
+
+        {/* Formulario de Experiencia */}
+        <div className="form-right">
+          <ExperienceForm
+            experiences={experiences}
+            setExperiences={setExperiences}
+          />
+        </div>
+      </div>
+
+      {/* Botón centrado debajo de los formularios */}
+      <div className="button-center">
+        <Button
+          className="floating-button"
+          sx={{
+            backgroundColor: "#007bff",
+            color: "#fff",
+            fontWeight: "bold",
+            marginLeft: "30px", // Agrega margen superior para separar el botón del formulario
+            "&:hover": { backgroundColor: "#0056b3" },
+          }}
+          onClick={() => navigate("/proyectos")}
+        >
+          Proyectos
+        </Button>
       </div>
     </div>
   );
 }
-

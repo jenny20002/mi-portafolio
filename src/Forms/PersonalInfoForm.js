@@ -18,11 +18,6 @@ const schema = yup.object().shape({
   segundoNombre: yup.string(),
   primerApellido: yup.string().required("Ingrese al menos un apellido"),
   segundoApellido: yup.string(),
-  nombreCompleto: yup
-    .string()
-    .test("nombre-completo", "Debe tener al menos un nombre y un apellido", function () {
-      return this.parent.primerNombre && this.parent.primerApellido;
-    }),
   ocupacion: yup.string().required("Este campo es obligatorio"),
   email: yup.string().email("Ingrese un email válido").matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Formato de email inválido").required("Ingrese un email válido"),
   telefono: yup.string().matches(/^\d{8}$/, "Debe ser un número de 8 dígitos").required("Este campo es obligatorio"),
@@ -32,7 +27,7 @@ const schema = yup.object().shape({
     .required("Este campo es obligatorio"),
 });
 
-const PersonalInfoForm = ({ onFormSubmit, formData, setFormData }) => {
+const PersonalInfoForm = ({ onFormSubmit, formData, setFormData, setPersonalInfo }) => {
   const {
     register,
     handleSubmit,
@@ -44,17 +39,29 @@ const PersonalInfoForm = ({ onFormSubmit, formData, setFormData }) => {
 
   // Cargar los datos del localStorage
   useEffect(() => {
-    if (formData) {
-      Object.keys(formData).forEach((key) => setValue(key, formData[key]));
+    const storedData = localStorage.getItem("personalInfo");
+    if (storedData) {
+      const parsedData = JSON.parse(storedData);
+      Object.keys(parsedData).forEach((key) => setValue(key, parsedData[key]));
     }
-  }, [formData, setValue]);
+  }, [setValue]);
 
-  // Guardar datos en localStorage
+  // Guardar datos en localStorage y actualizar el estado global
   const onSubmit = (data) => {
-    localStorage.setItem("userProfile", JSON.stringify(data));
+    localStorage.setItem("personalInfo", JSON.stringify(data)); // Guardar todos los datos en localStorage
     alert("Perfil guardado con éxito!");
-    setFormData({}); // Limpiar el formulario sin borrar datos del localStorage
-    onFormSubmit(); // Llamar a la función para cerrar el formulario
+
+    if (setFormData) {
+      setFormData({});
+    }
+
+    if (setPersonalInfo) {
+      setPersonalInfo(data); // Actualizar el estado global con los datos del formulario
+    }
+
+    if (onFormSubmit) {
+      onFormSubmit(); // Llamar a la función de envío si está definida
+    }
   };
 
   return (

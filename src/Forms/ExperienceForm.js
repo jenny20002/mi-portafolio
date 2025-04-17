@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   TextField,
   Button,
   Box,
-  Drawer,
   Typography,
-  IconButton,
-  Toolbar,
-  AppBar,
   Grid,
+  List,
+  ListItem,
+  ListItemText,
+  IconButton,
 } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { Delete, Edit } from "@mui/icons-material";
+import { useNavigate, useLocation } from "react-router-dom"; // Importar hooks de navegación
 
-export const ExperienceForm = () => {
-  const [experiences, setExperiences] = useState([]);
+export const ExperienceForm = ({ experiences, setExperiences }) => {
+  const navigate = useNavigate();
+  const location = useLocation(); // Obtener el estado de navegación
+  const fromPreview = location.state?.fromPreview || false; // Verificar si viene de la vista previa
+
   const [form, setForm] = useState({
     company: "",
     position: "",
@@ -23,7 +26,21 @@ export const ExperienceForm = () => {
     responsibilities: "",
   });
   const [editIndex, setEditIndex] = useState(null);
-  const [openDrawer, setOpenDrawer] = useState(false);
+
+  // Cargar datos desde localStorage al iniciar
+  useEffect(() => {
+    const storedExperiences = localStorage.getItem("experiences");
+    if (storedExperiences) {
+      setExperiences(JSON.parse(storedExperiences));
+    }
+  }, [setExperiences]);
+
+  // Guardar datos en localStorage cada vez que cambien
+  useEffect(() => {
+    if (experiences.length > 0) {
+      localStorage.setItem("experiences", JSON.stringify(experiences));
+    }
+  }, [experiences]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,10 +48,7 @@ export const ExperienceForm = () => {
   };
 
   const addExperience = () => {
-    // Validar que el campo "company" no esté vacío
-    if (!form.company.trim()) {
-      return; // No hacer nada si está vacío
-    }
+    if (!form.company.trim()) return;
 
     if (editIndex !== null) {
       const updatedExperiences = [...experiences];
@@ -55,213 +69,123 @@ export const ExperienceForm = () => {
   };
 
   const removeExperience = (index) => {
-    setExperiences(experiences.filter((_, i) => i !== index));
+    setExperiences((prev) => prev.filter((_, i) => i !== index));
   };
 
   const handleEdit = (index) => {
     setEditIndex(index);
     setForm(experiences[index]);
-    setOpenDrawer(false);
-  };
-
-  const toggleDrawer = (open) => {
-    setOpenDrawer(open);
   };
 
   return (
-    <Box sx={{ maxWidth: 800, margin: "auto", padding: 2 }}>
-      <details
-        style={{
-          border: "1px solid #ccc",
-          borderRadius: 5,
-          padding: 12,
-          backgroundColor: "#f9f9f9",
-          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-        }}
-        open
-      >
-        <summary
-          style={{
-            fontSize: "18px",
-            fontWeight: "bold",
-            color: "#007bff",
-            cursor: "pointer",
-          }}
-        >
-          Experiencia Laboral
-        </summary>
-        <Typography variant="h5" sx={{ marginBottom: 2, marginTop: 2 }}>
-          Formulario de Experiencia
-        </Typography>
-        <Grid container spacing={2} component="form">
-          <Grid item xs={12} sm={6}>
-            <TextField
-              label="Empresa"
-              name="company"
-              value={form.company}
-              onChange={handleChange}
-              variant="outlined"
-              fullWidth
-              required
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              label="Cargo"
-              name="position"
-              value={form.position}
-              onChange={handleChange}
-              variant="outlined"
-              fullWidth
-              required
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              label="Fecha de Inicio"
-              name="startDate"
-              type="date"
-              value={form.startDate}
-              onChange={handleChange}
-              InputLabelProps={{ shrink: true }}
-              variant="outlined"
-              fullWidth
-              required
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              label="Fecha de Finalización"
-              name="endDate"
-              type="date"
-              value={form.endDate}
-              onChange={handleChange}
-              InputLabelProps={{ shrink: true }}
-              variant="outlined"
-              fullWidth
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              label="Responsabilidades"
-              name="responsibilities"
-              value={form.responsibilities}
-              onChange={handleChange}
-              variant="outlined"
-              fullWidth
-              multiline
-              rows={4}
-            />
-          </Grid>
-          {/* Se asegura que ambos botones sean consistentes en tamaño */}
-          <Grid item xs={12} sm={6}>
-            <Button
-              onClick={addExperience}
-              variant="contained"
-              color="primary"
-              sx={{
-                height: "50px", // Tamaño fijo para asegurar uniformidad
-                width: "100%",
-              }}
-            >
-              {editIndex !== null ? "Guardar Cambios" : "Añadir"}
-            </Button>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={() => toggleDrawer(true)}
-              sx={{
-                height: "50px", // Mismo tamaño que el otro botón
-                width: "100%",
-              }}
-            >
-              Vista Previa
-            </Button>
-          </Grid>
+    <Box className="experience-card">
+      <Typography variant="h6" sx={{ marginBottom: 2 }}>
+        Experiencia Laboral
+      </Typography>
+      <Grid container spacing={2}>
+        {/* Formulario */}
+        <Grid item xs={12} sm={6}>
+          <TextField
+            label="Empresa *"
+            name="company"
+            value={form.company}
+            onChange={handleChange}
+            variant="outlined"
+            fullWidth
+            required
+          />
         </Grid>
-      </details>
-
-      <Drawer
-        anchor="right"
-        open={openDrawer}
-        onClose={() => toggleDrawer(false)}
-      >
-        <Box sx={{ width: 400, padding: 2 }}>
-          <AppBar
-            position="static"
-            sx={{ backgroundColor: "white", boxShadow: "none" }}
+        <Grid item xs={12} sm={6}>
+          <TextField
+            label="Cargo *"
+            name="position"
+            value={form.position}
+            onChange={handleChange}
+            variant="outlined"
+            fullWidth
+            required
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            label="Fecha de Inicio *"
+            name="startDate"
+            type="date"
+            value={form.startDate}
+            onChange={handleChange}
+            InputLabelProps={{ shrink: true }}
+            variant="outlined"
+            fullWidth
+            required
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            label="Fecha de Finalización"
+            name="endDate"
+            type="date"
+            value={form.endDate}
+            onChange={handleChange}
+            InputLabelProps={{ shrink: true }}
+            variant="outlined"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Responsabilidades"
+            name="responsibilities"
+            value={form.responsibilities}
+            onChange={handleChange}
+            variant="outlined"
+            fullWidth
+            multiline
+            rows={4}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Button
+            onClick={addExperience}
+            variant="contained"
+            color="primary"
+            fullWidth
+            sx={{ backgroundColor: editIndex !== null ? "#673AB7" : "#2196F3" }}
           >
-            <Toolbar>
-              <IconButton
-                edge="start"
-                color="inherit"
-                onClick={() => toggleDrawer(false)}
-              >
-                <CloseIcon />
-              </IconButton>
-              <Typography variant="h6" sx={{ flexGrow: 1, color: "purple" }}>
-                Sección Experiencia
-              </Typography>
-            </Toolbar>
-          </AppBar>
-          <Typography variant="h6" sx={{ marginTop: 2 }}>
-            Vista Previa
-          </Typography>
-          <Box sx={{ marginTop: 2 }}>
-            {experiences.length === 0 ? (
-              <Typography variant="body1" color="textSecondary">
-                No hay datos para mostrar.
-              </Typography>
-            ) : (
-              experiences.map((exp, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    marginBottom: 2,
-                    padding: 2,
-                    backgroundColor: "#f5f5f5",
-                    borderRadius: 1,
-                  }}
-                >
-                  <Typography variant="body1">
-                    <strong>Empresa:</strong> {exp.company}
-                  </Typography>
-                  <Typography variant="body1">
-                    <strong>Cargo:</strong> {exp.position}
-                  </Typography>
-                  <Typography variant="body1">
-                    <strong>Período:</strong> {exp.startDate} -{" "}
-                    {exp.endDate || "Presente"}
-                  </Typography>
-                  <Typography variant="body1">
-                    <strong>Responsabilidades:</strong> {exp.responsibilities}
-                  </Typography>
-                  <Box sx={{ display: "flex", gap: 1, marginTop: 1 }}>
-                    <Button
-                      onClick={() => handleEdit(index)}
-                      variant="outlined"
-                      color="primary"
-                      size="small"
-                    >
-                      <FaEdit /> Editar
-                    </Button>
-                    <Button
-                      onClick={() => removeExperience(index)}
-                      variant="contained"
-                      color="error"
-                      size="small"
-                    >
-                      <FaTrash /> Eliminar
-                    </Button>
-                  </Box>
-                </Box>
-              ))
-            )}
-          </Box>
+            {editIndex !== null ? "Guardar Cambios" : "Añadir"}
+          </Button>
+        </Grid>
+      </Grid>
+      <List sx={{ marginTop: 4 }}>
+        {experiences.map((exp, index) => (
+          <ListItem key={index} sx={{ borderBottom: "1px solid #ddd" }}>
+            <ListItemText
+              primary={`${exp.company} - ${exp.position}`}
+              secondary={`Desde: ${exp.startDate} Hasta: ${exp.endDate || "Presente"}`}
+            />
+            <IconButton onClick={() => handleEdit(index)} color="primary">
+              <Edit />
+            </IconButton>
+            <IconButton onClick={() => removeExperience(index)} color="error">
+              <Delete />
+            </IconButton>
+          </ListItem>
+        ))}
+      </List>
+
+      {/* Botón de regresar */}
+      {fromPreview && (
+        <Box sx={{ textAlign: "center", marginTop: 4 }}>
+          <Button
+            variant="outlined"
+            color="secondary"
+            onClick={() => navigate(-1)} // Regresar a la página anterior
+          >
+            Regresar
+          </Button>
         </Box>
-      </Drawer>
+      )}
     </Box>
   );
 };
+
+export default ExperienceForm;

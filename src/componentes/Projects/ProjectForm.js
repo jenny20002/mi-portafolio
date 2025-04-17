@@ -5,25 +5,47 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { useNavigate } from "react-router-dom";
 import ProjectCard from "./ProjectCard";
 
-const ProjectForm = () => {
+const ProjectForm = ({ projects, setProjects }) => {
   const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm();
   const navigate = useNavigate();
 
-  const [projects, setProjects] = useState(() => JSON.parse(localStorage.getItem("projects")) || []);
   const [imagePreview, setImagePreview] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const formRef = useRef(null); // <- Referencia para hacer scroll
+  const formRef = useRef(null);
 
+  // Inicializar proyectos desde localStorage al cargar el componente
   useEffect(() => {
-    localStorage.setItem("projects", JSON.stringify(projects));
+    const storedProjects = localStorage.getItem("projects");
+    if (storedProjects) {
+      setProjects(JSON.parse(storedProjects));
+    }
+  }, [setProjects]);
+
+  // Guardar proyectos en localStorage cada vez que cambien
+  useEffect(() => {
+    if (projects.length > 0) {
+      localStorage.setItem("projects", JSON.stringify(projects));
+    }
   }, [projects]);
+
+  // Convertir imagen a Base64
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result); // Guardar la imagen en Base64
+      };
+      reader.readAsDataURL(file); // Convertir la imagen a Base64
+    }
+  };
 
   const onSubmit = (data) => {
     const newProject = {
       ...data,
       id: selectedProject ? selectedProject.id : Date.now(),
-      image: imagePreview === null ? null : imagePreview || selectedProject?.image
+      image: imagePreview || selectedProject?.image || null, // Guardar la imagen en Base64
     };
 
     if (selectedProject) {
@@ -49,7 +71,6 @@ const ProjectForm = () => {
     setValue("link", project.link);
     setImagePreview(project.image);
 
-    // Scroll automático al formulario
     formRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -60,8 +81,8 @@ const ProjectForm = () => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", maxWidth: "800px", mx: "auto", padding: 4, boxShadow: 3, borderRadius: 3, backgroundColor: "white" }}>
       <Typography variant="h4" ref={formRef} sx={{ fontFamily: 'Times New Roman' }}>
-  {selectedProject ? "Editar Proyecto" : "Agregar Proyecto"}
-</Typography>
+        {selectedProject ? "Editar Proyecto" : "Agregar Proyecto"}
+      </Typography>
 
       <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ display: "flex", flexDirection: "column", gap: 2, width: "100%" }}>
         <TextField
@@ -99,7 +120,7 @@ const ProjectForm = () => {
 
         <Button variant="contained" component="label" startIcon={<CloudUploadIcon />}>
           Subir Imagen
-          <input type="file" hidden accept="image/*" onChange={(e) => setImagePreview(URL.createObjectURL(e.target.files[0]))} />
+          <input type="file" hidden accept="image/*" onChange={handleImageUpload} />
         </Button>
 
         {imagePreview && (
@@ -135,7 +156,7 @@ const ProjectForm = () => {
 
       <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2, width: "100%" }}>
         <Button variant="contained" color="secondary" onClick={() => navigate("/crea-portafolio")}>← Regresar</Button>
-        <Button variant="contained" color="success" onClick={() => navigate("/habilidades")} disabled={projects.length === 0}>Siguiente → </Button>
+        <Button variant="contained" color="success" onClick={() => navigate("/habilidades")} disabled={projects.length === 0}>Siguiente →</Button>
       </Box>
     </Box>
   );
