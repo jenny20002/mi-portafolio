@@ -11,10 +11,18 @@ import {
   IconButton,
 } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
+<<<<<<< HEAD
+=======
+import { useTranslation } from "react-i18next";
+>>>>>>> 0f8099d (Implementacion de traduccion)
 import { useNavigate, useLocation } from "react-router-dom"; // Importar hooks de navegación
 import {motion} from "framer-motion";
 
 export const ExperienceForm = ({ experiences, setExperiences }) => {
+<<<<<<< HEAD
+=======
+  const { t } = useTranslation();
+>>>>>>> 0f8099d (Implementacion de traduccion)
   const navigate = useNavigate();
   const location = useLocation(); // Obtener el estado de navegación
   const fromPreview = location.state?.fromPreview || false; // Verificar si viene de la vista previa
@@ -88,13 +96,21 @@ export const ExperienceForm = ({ experiences, setExperiences }) => {
   >
     <Box className="experience-card">
       <Typography variant="h6" sx={{ marginBottom: 2 }}>
+<<<<<<< HEAD
         Experiencia Laboral
+=======
+        {t('Experiencia Laboral')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
       </Typography>
       <Grid container spacing={2}>
         {/* Formulario */}
         <Grid item xs={12} sm={6}>
           <TextField
+<<<<<<< HEAD
             label="Empresa *"
+=======
+            label={t("Empresa *")}
+>>>>>>> 0f8099d (Implementacion de traduccion)
             name="company"
             value={form.company}
             onChange={handleChange}
@@ -105,7 +121,11 @@ export const ExperienceForm = ({ experiences, setExperiences }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+<<<<<<< HEAD
             label="Cargo *"
+=======
+            label={t("Cargo *")}
+>>>>>>> 0f8099d (Implementacion de traduccion)
             name="position"
             value={form.position}
             onChange={handleChange}
@@ -116,7 +136,11 @@ export const ExperienceForm = ({ experiences, setExperiences }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+<<<<<<< HEAD
             label="Fecha de Inicio *"
+=======
+            label={t("Fecha de Inicio *")}
+>>>>>>> 0f8099d (Implementacion de traduccion)
             name="startDate"
             type="date"
             value={form.startDate}
@@ -129,7 +153,11 @@ export const ExperienceForm = ({ experiences, setExperiences }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+<<<<<<< HEAD
             label="Fecha de Finalización"
+=======
+            label={t("Fecha de Finalización")}
+>>>>>>> 0f8099d (Implementacion de traduccion)
             name="endDate"
             type="date"
             value={form.endDate}
@@ -141,7 +169,11 @@ export const ExperienceForm = ({ experiences, setExperiences }) => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+<<<<<<< HEAD
             label="Responsabilidades"
+=======
+            label={t("Responsabilidades")}
+>>>>>>> 0f8099d (Implementacion de traduccion)
             name="responsibilities"
             value={form.responsibilities}
             onChange={handleChange}
@@ -159,17 +191,29 @@ export const ExperienceForm = ({ experiences, setExperiences }) => {
             fullWidth
             sx={{ backgroundColor: editIndex !== null ? "#673AB7" : "#2196F3" }}
           >
+<<<<<<< HEAD
             {editIndex !== null ? "Guardar Cambios" : "Añadir"}
+=======
+            {editIndex !== null ? t("Guardar Cambios") : t("Añadir")}
+>>>>>>> 0f8099d (Implementacion de traduccion)
           </Button>
         </Grid>
       </Grid>
       <List sx={{ marginTop: 4 }}>
         {experiences.map((exp, index) => (
           <ListItem key={index} sx={{ borderBottom: "1px solid #ddd" }}>
+<<<<<<< HEAD
             <ListItemText
               primary={`${exp.company} - ${exp.position}`}
               secondary={`Desde: ${exp.startDate} Hasta: ${exp.endDate || "Presente"}`}
             />
+=======
+           <ListItemText
+           primary={`${exp.company} – ${exp.position}`}
+          secondary={`${t("Desde")}: ${exp.startDate} ${t("Hasta")}: ${exp.endDate || t("Presente")}`}
+          />
+
+>>>>>>> 0f8099d (Implementacion de traduccion)
             <IconButton onClick={() => handleEdit(index)} color="primary">
               <Edit />
             </IconButton>
@@ -188,7 +232,11 @@ export const ExperienceForm = ({ experiences, setExperiences }) => {
             color="secondary"
             onClick={() => navigate(-1)} // Regresar a la página anterior
           >
+<<<<<<< HEAD
             Regresar
+=======
+            {t('Regresar')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
           </Button>
         </Box>
       )}

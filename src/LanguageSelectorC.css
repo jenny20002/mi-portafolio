@@ -1,0 +1,21 @@
+.language-selector {
+    display: flex;
+    gap: 15px; /* separa un poco más los botones */
+    justify-content: flex-start; /* <-- alinea a la izquierda */
+    padding: 1rem;
+  }
+  
+  .language-selector button {
+    background-color: #090231fb;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .language-selector button:hover {
+    background-color: #011020;
+  }
+  

@@ -8,11 +8,19 @@ import { useNavigate } from "react-router-dom";
 import "../componentes/Contact/ContactForm.styles.css";
 import { SavedLinksContext } from "../context/SavedLinksContext";
 import { motion } from "framer-motion";
+<<<<<<< HEAD
+=======
+import { useTranslation } from 'react-i18next';
+>>>>>>> 0f8099d (Implementacion de traduccion)
 
 
 const ContactForm = () => {
   const navigate = useNavigate();
   const { savedLinks, setSavedLinks } = useContext(SavedLinksContext);
+<<<<<<< HEAD
+=======
+  const { t } = useTranslation();
+>>>>>>> 0f8099d (Implementacion de traduccion)
 
   const initialValues = {
     linkedin: "",
@@ -71,6 +79,7 @@ const ContactForm = () => {
   };
 
   return (
+<<<<<<< HEAD
 
     <motion.div
     className="contact-container"
@@ -252,3 +261,186 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
+=======
+    <div>
+      <motion.div
+        className="contact-container"
+        initial={{ opacity: 0, y: 50, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        <h2>{t('Contacto')}</h2>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          <Form className="contact-form">
+            <div className="form-group">
+              <label htmlFor="linkedin">LinkedIn:</label>
+              <Field
+                type="text"
+                name="linkedin"
+                placeholder="https://linkedin.com/in/usuario"
+              />
+              <ErrorMessage
+                name="linkedin"
+                component="div"
+                className="error-message"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="github">GitHub:</label>
+              <Field
+                type="text"
+                name="github"
+                placeholder="https://github.com/usuario"
+              />
+              <ErrorMessage
+                name="github"
+                component="div"
+                className="error-message"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="twitter">Twitter:</label>
+              <Field
+                type="text"
+                name="twitter"
+                placeholder="https://twitter.com/usuario"
+              />
+              <ErrorMessage
+                name="twitter"
+                component="div"
+                className="error-message"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">{t('Correo Electrónico:')} </label>
+              <Field
+                type="text"
+                name="email"
+                placeholder="correo@dominio.com"
+              />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className="error-message"
+              />
+            </div>
+            <motion.button
+              className="motion-button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {t('Guardar')}
+            </motion.button>
+          </Form>
+        </Formik>
+
+        {savedLinks.length > 0 && (
+          <div className="social-links">
+            <h3>{t('Redes Sociales Guardadas')}</h3>
+            {savedLinks.map((links, index) => (
+              <div key={index} className="social-link-item">
+                {links.linkedin && (
+                  <div className="social-entry">
+                    <button
+                      onClick={() => handleDelete(index, "linkedin")}
+                      className="delete-button"
+                    >
+                      {t('Eliminar')}
+                    </button>
+                    <a
+                      href={links.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaLinkedin className="icon linkedin" />
+                      <span>{links.linkedin}</span>
+                    </a>
+                  </div>
+                )}
+                {links.github && (
+                  <div className="social-entry">
+                    <button
+                      onClick={() => handleDelete(index, "github")}
+                      className="delete-button"
+                    >
+                      {t('Eliminar')}
+                    </button>
+                    <a
+                      href={links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaGithub className="icon github" />
+                      <span>{links.github}</span>
+                    </a>
+                  </div>
+                )}
+                {links.twitter && (
+                  <div className="social-entry">
+                    <button
+                      onClick={() => handleDelete(index, "twitter")}
+                      className="delete-button"
+                    >
+                      {t('Eliminar')}
+                    </button>
+                    <a
+                      href={links.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaTwitter className="icon twitter" />
+                      <span>{links.twitter}</span>
+                    </a>
+                  </div>
+                )}
+                {links.email && (
+                  <div className="social-entry">
+                    <button
+                      onClick={() => handleDelete(index, "email")}
+                      className="delete-button"
+                    >
+                      {t('Eliminar')}
+                    </button>
+                    <a
+                      href={`mailto:${links.email}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {getEmailIcon(links.email)}
+                      <span>{links.email}</span>
+                    </a>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="navigation-buttons">
+          <button
+            onClick={() => navigate("/referencias")}
+            style={{ backgroundColor: "#6a1b9a", color: "white" }}
+          >
+            {t('← Regresar')}
+          </button>
+          <button
+            onClick={() => navigate("/vista-previa")}
+            style={{ backgroundColor: "#2196f3", color: "white" }}
+          >
+            {t('Siguiente →')}
+          </button>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default ContactForm;
+>>>>>>> 0f8099d (Implementacion de traduccion)

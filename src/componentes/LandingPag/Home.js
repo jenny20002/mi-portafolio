@@ -1,6 +1,11 @@
 import styled from "styled-components";
+<<<<<<< HEAD
 import * as React from "react";
 import PersonalInfoForm from "../../Forms/PersonalInfoForm";
+=======
+import { useTranslation } from "react-i18next";
+import * as React from "react";
+>>>>>>> 0f8099d (Implementacion de traduccion)
 import curriculumImage from './Imagenes/curriculum-vitae350x495.jpg'; // Ruta de la imagen
 import HomeC from "./HomeC.css";
 
@@ -77,6 +82,10 @@ const ImageStyled = styled.img`
 `;
 
 function Home() {
+<<<<<<< HEAD
+=======
+  const { t } = useTranslation();
+>>>>>>> 0f8099d (Implementacion de traduccion)
   const [showForm, setShowForm] = React.useState(false);
   const [formData, setFormData] = React.useState({});
   const formRef = React.useRef(null);
@@ -102,33 +111,57 @@ function Home() {
     <MainContainer>
       <LeftSection>
         <div className="divContenedor1">
+<<<<<<< HEAD
           <TituloGrande>HELLO I'M !</TituloGrande>
+=======
+          <TituloGrande> {t("HELLO I'M !")} </TituloGrande>
+>>>>>>> 0f8099d (Implementacion de traduccion)
         </div>
         <div className="divContenedor2">
           <Subtitulo>
             {IconoCheck()}
+<<<<<<< HEAD
             <SpanStyled> Crea tu propio portafolio</SpanStyled>
+=======
+            <SpanStyled> {t('Crea tu propio portafolio')} </SpanStyled>
+>>>>>>> 0f8099d (Implementacion de traduccion)
           </Subtitulo>
         </div>
         <div className="divContenedor3">
           <Subtitulo>
+<<<<<<< HEAD
             {IconoCheck()} <SpanStyled>Selecciona una Plantilla.</SpanStyled>
+=======
+            {IconoCheck()} <SpanStyled> {t('Selecciona una Plantilla.')} </SpanStyled>
+>>>>>>> 0f8099d (Implementacion de traduccion)
           </Subtitulo>
         </div>
         <div className="divContenedor4">
           <Subtitulo onClick={toggleFormVisibility}>
+<<<<<<< HEAD
             {IconoCheck()} <SpanStyled>Rellena con tus datos personales.</SpanStyled>
+=======
+            {IconoCheck()} <SpanStyled>{t('Rellena con tus datos personales.')}</SpanStyled>
+>>>>>>> 0f8099d (Implementacion de traduccion)
           </Subtitulo>
         
           </div>
         <div className="divContenedor5">
           <Subtitulo>
+<<<<<<< HEAD
             {IconoCheck()} <SpanStyled>Descarga tu currículum Vitae.</SpanStyled>
+=======
+            {IconoCheck()} <SpanStyled>{t('Descarga tu currículum Vitae.')}</SpanStyled>
+>>>>>>> 0f8099d (Implementacion de traduccion)
           </Subtitulo>
         </div>
         <div className="divContenedor6">
           <TextoFinal>
+<<<<<<< HEAD
             <SpanStyled>Crear tu currículum nunca había sido tan fácil.</SpanStyled>
+=======
+            <SpanStyled>{t('Crear tu currículum nunca había sido tan fácil.')}</SpanStyled>
+>>>>>>> 0f8099d (Implementacion de traduccion)
           </TextoFinal>
         </div>
       </LeftSection>

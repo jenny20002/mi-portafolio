@@ -6,6 +6,10 @@ import Contact from "./Contact.js";
 import Home from "./Home.js";
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0f8099d (Implementacion de traduccion)
 //// error de body a div mejor
 var BodyStyled = styled.div`
    background: -webkit-linear-gradient(
@@ -50,6 +54,12 @@ var BodyStyled = styled.div`
 // Desde app.js solo llamamos la (landingPage) y como usamos componentes podemos llamar lo que necesitemos
 
 function LandingPage() {
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 0f8099d (Implementacion de traduccion)
   return (
     <BodyStyled> 
     <Contact />

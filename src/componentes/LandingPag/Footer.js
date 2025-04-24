@@ -1,4 +1,8 @@
 import styled from "styled-components";
+<<<<<<< HEAD
+=======
+import { useTranslation } from "react-i18next";
+>>>>>>> 0f8099d (Implementacion de traduccion)
 import React from "react";
 import "./FooterC.css";
 
@@ -70,6 +74,11 @@ const BeneficioDescription = styled.p`
 
 // Componente Footer
 function Footer() {
+<<<<<<< HEAD
+=======
+  const { t } = useTranslation();
+
+>>>>>>> 0f8099d (Implementacion de traduccion)
   return (
     <ContenedorPadre>
       <Contenedor1>
@@ -78,25 +87,43 @@ function Footer() {
           <BeneficiosSection>
             <BeneficioCard>
               <BeneficioIcon>💻</BeneficioIcon>
+<<<<<<< HEAD
               <BeneficioTitle>Fácil de usar</BeneficioTitle>
               <BeneficioDescription>
                 La plataforma es intuitiva, no necesitas experiencia previa para empezar.
               </BeneficioDescription>
+=======
+              <BeneficioTitle>{t("Fácil de usar")}</BeneficioTitle>
+              <BeneficioDescription>
+                {t('La plataforma es intuitiva, no necesitas experiencia previa para empezar.')}              </BeneficioDescription>
+>>>>>>> 0f8099d (Implementacion de traduccion)
             </BeneficioCard>
 
             <BeneficioCard>
               <BeneficioIcon>🔒</BeneficioIcon>
+<<<<<<< HEAD
               <BeneficioTitle>Seguridad Garantizada</BeneficioTitle>
               <BeneficioDescription>
                 Tus datos están completamente protegidos con nuestras políticas de seguridad.
+=======
+              <BeneficioTitle>{t('Seguridad Garantizada')}</BeneficioTitle>
+              <BeneficioDescription>
+                {t('Tus datos están completamente protegidos con nuestras políticas de seguridad.')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
               </BeneficioDescription>
             </BeneficioCard>
 
             <BeneficioCard>
               <BeneficioIcon>🎨</BeneficioIcon>
+<<<<<<< HEAD
               <BeneficioTitle>Plantillas Personalizables</BeneficioTitle>
               <BeneficioDescription>
                 Elige una plantilla y personalízala para que tu curriculum se ajuste a tu estilo.
+=======
+              <BeneficioTitle>{t('Plantillas Personalizables')}</BeneficioTitle>
+              <BeneficioDescription>
+                {t('Elige una plantilla y personalízala para que tu curriculum se ajuste a tu estilo.')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
               </BeneficioDescription>
             </BeneficioCard>
           </BeneficiosSection>
@@ -106,8 +133,13 @@ function Footer() {
       <Contenedor2>
       {/* Pie de página */}
       <footer className="footerClass">
+<<<<<<< HEAD
         <p>© {new Date().getFullYear()} Hello I'm! Todos los derechos reservados.</p>
         <p>Convierte tus ideas en un portafolio profesional.</p>
+=======
+        <p>© {new Date().getFullYear()} {t("Hello I'm! Todos los derechos reservados.")}</p>
+        <p> {t("Convierte tus ideas en un portafolio profesional.")}</p>
+>>>>>>> 0f8099d (Implementacion de traduccion)
       </footer>
     </Contenedor2>
   </ContenedorPadre>

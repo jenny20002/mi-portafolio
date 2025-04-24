@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+<<<<<<< HEAD
+=======
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from "./LanguageSelector";
+>>>>>>> 0f8099d (Implementacion de traduccion)
 import LandingPage from "./componentes/LandingPag/LandingPage";
 import { EducationyExperience } from "./componentes/CreaCV/CreaPortafolio";
 import ProjectForm from "./componentes/Projects/ProjectForm";
@@ -14,7 +19,19 @@ import { SavedLinksProvider } from "./context/SavedLinksContext"; // Importamos 
 import ReferencesForm from "./componentes/References/ReferencesForm";  // Importa tu formulario de referencias
 import ReferencesList from "./componentes/References/ReferencesList";  // Importa la lista de referencias
 
+<<<<<<< HEAD
 function App() {
+=======
+
+function App() {
+
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
+>>>>>>> 0f8099d (Implementacion de traduccion)
   // Estados centralizados
   const [personalInfo, setPersonalInfo] = useState({
     fullName: "",
@@ -37,6 +54,10 @@ function App() {
       {" "}
       {/* Envolvemos la aplicación con el proveedor del contexto */}
       <Router>
+<<<<<<< HEAD
+=======
+      <LanguageSelector />
+>>>>>>> 0f8099d (Implementacion de traduccion)
         <Routes>
           {/* Ruta principal */}
           <Route path="/" element={<LandingPage />} />

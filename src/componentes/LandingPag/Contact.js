@@ -1,4 +1,8 @@
 import styled from "styled-components";
+<<<<<<< HEAD
+=======
+import { useTranslation } from "react-i18next";
+>>>>>>> 0f8099d (Implementacion de traduccion)
 
 const HeaderStyle = styled.div`
   padding: 0px;
@@ -22,10 +26,19 @@ const Iconos = styled.image`
 `;
 
 function Contact() {
+<<<<<<< HEAD
   return (
     <HeaderStyle>
       <Contactos>
         <span translate="no"> Contactanos por:</span>
+=======
+  const { t } = useTranslation(); 
+  
+  return (
+    <HeaderStyle>
+      <Contactos>
+        <span translate="no">{t('Contactanos por:')}</span>
+>>>>>>> 0f8099d (Implementacion de traduccion)
         <Iconos>{IconoDeLinkedin()}</Iconos>
         <Iconos>{IconoInstagram()}</Iconos>
         <Iconos>{IconoTwitter()}</Iconos>

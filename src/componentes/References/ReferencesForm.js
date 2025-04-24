@@ -11,6 +11,10 @@ import {
   CardActions,
 } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
+<<<<<<< HEAD
+=======
+import { useTranslation } from "react-i18next";
+>>>>>>> 0f8099d (Implementacion de traduccion)
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -19,6 +23,10 @@ import "slick-carousel/slick/slick-theme.css";
 const relaciones = ["Amig@", "Colega", "Cliente"];
 
 const ReferencesForm = () => {
+<<<<<<< HEAD
+=======
+  const { t } = useTranslation(); 
+>>>>>>> 0f8099d (Implementacion de traduccion)
   const { control, handleSubmit, reset, setValue } = useForm();
   const [references, setReferences] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
@@ -126,7 +134,11 @@ const ReferencesForm = () => {
         textAlign="center"
         sx={{ mb: 3, fontFamily: "Times New Roman" }}
       >
+<<<<<<< HEAD
         {isEditing ? "Editar Referencia" : "Agregar Referencia"}
+=======
+        {isEditing ? t("Editar Referencia") : t("Agregar Referencia")}
+>>>>>>> 0f8099d (Implementacion de traduccion)
       </Typography>
 
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -134,11 +146,19 @@ const ReferencesForm = () => {
           name="nombre"
           control={control}
           defaultValue=""
+<<<<<<< HEAD
           rules={{ required: "Nombre requerido" }}
           render={({ field, fieldState }) => (
             <TextField
               {...field}
               label="Nombre"
+=======
+          rules={{ required: t("Nombre requerido") }}
+          render={({ field, fieldState }) => (
+            <TextField
+              {...field}
+              label={t("Nombre")}
+>>>>>>> 0f8099d (Implementacion de traduccion)
               fullWidth
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
@@ -153,12 +173,20 @@ const ReferencesForm = () => {
           name="relacion"
           control={control}
           defaultValue=""
+<<<<<<< HEAD
           rules={{ required: "Relación requerida" }}
+=======
+          rules={{ required: t("Relación requerida") }}
+>>>>>>> 0f8099d (Implementacion de traduccion)
           render={({ field, fieldState }) => (
             <TextField
               {...field}
               select
+<<<<<<< HEAD
               label="Relación"
+=======
+              label={t("Relación")}
+>>>>>>> 0f8099d (Implementacion de traduccion)
               fullWidth
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
@@ -183,11 +211,19 @@ const ReferencesForm = () => {
           name="testimonio"
           control={control}
           defaultValue=""
+<<<<<<< HEAD
           rules={{ required: "Testimonio requerido" }}
           render={({ field, fieldState }) => (
             <TextField
               {...field}
               label="Testimonio"
+=======
+          rules={{ required: t("Testimonio requerido") }}
+          render={({ field, fieldState }) => (
+            <TextField
+              {...field}
+              label={t("Testimonio")}
+>>>>>>> 0f8099d (Implementacion de traduccion)
               fullWidth
               multiline
               rows={4}
@@ -206,7 +242,11 @@ const ReferencesForm = () => {
             component="label"
             sx={{ fontFamily: "Times New Roman" }}
           >
+<<<<<<< HEAD
             Subir Foto
+=======
+            {t('Subir Foto')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
             <input
               type="file"
               accept="image/*"
@@ -226,7 +266,11 @@ const ReferencesForm = () => {
           fullWidth
           sx={{ fontFamily: "Times New Roman", mb: 2 }}
         >
+<<<<<<< HEAD
           {isEditing ? "Guardar Cambios" : "Agregar Referencia"}
+=======
+          {isEditing ? t("Guardar Cambios") : t("Agregar Referencia")}
+>>>>>>> 0f8099d (Implementacion de traduccion)
         </Button>
       </form>
 
@@ -235,12 +279,20 @@ const ReferencesForm = () => {
           variant="h5"
           sx={{ fontFamily: "Times New Roman", mb: 2 }}
         >
+<<<<<<< HEAD
           Referencias Agregadas
+=======
+          {t('Referencias Agregadas')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
         </Typography>
 
         {references.length === 0 ? (
           <Typography sx={{ fontFamily: "Times New Roman" }}>
+<<<<<<< HEAD
             Aún no hay referencias.
+=======
+            {t('Aún no hay referencias.')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
             </Typography>
 ) : references.length === 1 ? (
   <Card>
@@ -255,7 +307,11 @@ const ReferencesForm = () => {
             {references[0].nombre}
           </Typography>
           <Typography variant="body2" sx={{ fontFamily: "Times New Roman" }}>
+<<<<<<< HEAD
             Relación: {references[0].relacion}
+=======
+            {t('Relación:')} {references[0].relacion}
+>>>>>>> 0f8099d (Implementacion de traduccion)
           </Typography>
         </Box>
       </Box>
@@ -269,7 +325,11 @@ const ReferencesForm = () => {
         onClick={() => handleEdit(references[0])}
         sx={{ fontFamily: "Times New Roman" }}
       >
+<<<<<<< HEAD
         Editar
+=======
+        {t('Editar')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
       </Button>
       <Button
         size="small"
@@ -277,7 +337,11 @@ const ReferencesForm = () => {
         onClick={() => handleDelete(references[0].id)}
         sx={{ fontFamily: "Times New Roman" }}
       >
+<<<<<<< HEAD
         Eliminar
+=======
+        {t('Eliminar')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
       </Button>
     </CardActions>
   </Card>
@@ -297,7 +361,11 @@ const ReferencesForm = () => {
                   {ref.nombre}
                 </Typography>
                 <Typography variant="body2" sx={{ fontFamily: "Times New Roman" }}>
+<<<<<<< HEAD
                   Relación: {ref.relacion}
+=======
+                  {t('Relación:')} {ref.relacion}
+>>>>>>> 0f8099d (Implementacion de traduccion)
                 </Typography>
               </Box>
             </Box>
@@ -311,7 +379,11 @@ const ReferencesForm = () => {
               onClick={() => handleEdit(ref)}
               sx={{ fontFamily: "Times New Roman" }}
             >
+<<<<<<< HEAD
               Editar
+=======
+             {t('Editar')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
             </Button>
             <Button
               size="small"
@@ -319,7 +391,11 @@ const ReferencesForm = () => {
               onClick={() => handleDelete(ref.id)}
               sx={{ fontFamily: "Times New Roman" }}
             >
+<<<<<<< HEAD
               Eliminar
+=======
+              {t('Eliminar')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
             </Button>
           </CardActions>
         </Card>
@@ -335,14 +411,22 @@ const ReferencesForm = () => {
           variant="contained"
           sx={{ backgroundColor: "#000", color: "#fff" }}
         >
+<<<<<<< HEAD
           ← Regresar
+=======
+          {t('← Regresar')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
         </Button>
         <Button
           onClick={() => navigate("/contactos")}
           variant="contained"
           sx={{ backgroundColor: "#000", color: "#fff" }}
         >
+<<<<<<< HEAD
           Siguiente →
+=======
+          {t('Siguiente →')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
         </Button>
       </Box>
     </Box>

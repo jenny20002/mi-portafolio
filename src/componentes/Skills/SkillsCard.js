@@ -1,9 +1,17 @@
 import React from "react";
+<<<<<<< HEAD
+=======
+import { useTranslation } from "react-i18next";
+>>>>>>> 0f8099d (Implementacion de traduccion)
 import PropTypes from "prop-types";
 import { Card, CardContent, Typography, Button, Box, Rating } from "@mui/material";
 import { motion } from "framer-motion";
 
 const SkillsCard = ({ skill, removeSkill, setSkillToEdit }) => {
+<<<<<<< HEAD
+=======
+   const { t } = useTranslation();
+>>>>>>> 0f8099d (Implementacion de traduccion)
   return (
     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
       <Card sx={{ maxWidth: 345 }}>
@@ -16,8 +24,13 @@ const SkillsCard = ({ skill, removeSkill, setSkillToEdit }) => {
             <span>{skill.level} / 5</span>
           </Box>
 
+<<<<<<< HEAD
           <Button color="primary" onClick={() => setSkillToEdit(skill)}>Editar</Button>
           <Button color="error" onClick={() => removeSkill(skill.id)}>Eliminar</Button>
+=======
+          <Button color="primary" onClick={() => setSkillToEdit(skill)}>{t('Editar')}</Button>
+          <Button color="error" onClick={() => removeSkill(skill.id)}>{t('Eliminar')}</Button>
+>>>>>>> 0f8099d (Implementacion de traduccion)
         </CardContent>
       </Card>
     </motion.div>

@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+<<<<<<< HEAD
+=======
+import { useTranslation } from "react-i18next";
+>>>>>>> 0f8099d (Implementacion de traduccion)
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -29,6 +33,10 @@ const schema = yup.object().shape({
 });
 
 const PersonalInfoForm = ({ onFormSubmit, formData, setFormData, setPersonalInfo }) => {
+<<<<<<< HEAD
+=======
+  const { t } = useTranslation();
+>>>>>>> 0f8099d (Implementacion de traduccion)
   const navigate = useNavigate();
   const [showNextButton, setShowNextButton] = useState(false);
 
@@ -86,6 +94,7 @@ const PersonalInfoForm = ({ onFormSubmit, formData, setFormData, setPersonalInfo
           '@media (max-width: 600px)': { maxWidth: "100%" }
         }}
       >
+<<<<<<< HEAD
         <TextField label="Primer Nombre" {...register("primerNombre")} variant="outlined" fullWidth error={!!errors.primerNombre} helperText={errors.primerNombre?.message} />
         <TextField label="Segundo Nombre" {...register("segundoNombre")} variant="outlined" fullWidth />
         <TextField label="Primer Apellido" {...register("primerApellido")} variant="outlined" fullWidth error={!!errors.primerApellido} helperText={errors.primerApellido?.message} />
@@ -97,11 +106,28 @@ const PersonalInfoForm = ({ onFormSubmit, formData, setFormData, setPersonalInfo
 
         <Button type="submit" variant="contained" color="primary" sx={{ padding: 1, fontSize: "1rem", fontWeight: "bold" }}>
           Guardar
+=======
+        <TextField label={t("Primer Nombre")} {...register("primerNombre")} variant="outlined" fullWidth error={!!errors.primerNombre} helperText={errors.primerNombre?.message} />
+        <TextField label={t("Segundo Nombre")} {...register("segundoNombre")} variant="outlined" fullWidth />
+        <TextField label={t("Primer Apellido")} {...register("primerApellido")} variant="outlined" fullWidth error={!!errors.primerApellido} helperText={errors.primerApellido?.message} />
+        <TextField label={t("Segundo Apellido")} {...register("segundoApellido")} variant="outlined" fullWidth />
+        <TextField label={t("Ocupación/Profesión")} {...register("ocupacion")} variant="outlined" fullWidth error={!!errors.ocupacion} helperText={errors.ocupacion?.message} />
+        <TextField label={t("Email")} type="email" {...register("email")} variant="outlined" fullWidth error={!!errors.email} helperText={errors.email?.message} />
+        <TextField label={t("Teléfono")}  type="tel" {...register("telefono")} variant="outlined" fullWidth error={!!errors.telefono} helperText={errors.telefono?.message} />
+        <TextField label={t("Ubicación")} {...register("ubicacion")} variant="outlined" fullWidth error={!!errors.ubicacion} helperText={errors.ubicacion?.message} />
+
+        <Button type="submit" variant="contained" color="primary" sx={{ padding: 1, fontSize: "1rem", fontWeight: "bold" }}>
+          {t('Guardar')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
         </Button>
 
         {showNextButton && (
           <Button variant="contained" color="secondary" sx={{ padding: 1, fontSize: "1rem", fontWeight: "bold" }} onClick={handleNext}>
+<<<<<<< HEAD
             Siguiente
+=======
+            {t('Siguiente')}
+>>>>>>> 0f8099d (Implementacion de traduccion)
           </Button>
         )}
       </Box>
